@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kalam", cursive;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(img/forest.jpg);
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  position: relative;
+  background: #303030;
+  width: 500px;
+  min-height: 550px;
+  border-radius: 20px;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.75), 10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 20px rgba(255, 255, 255, 0.2), inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.clock {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin-top: 25px;
+  background: #bbbbbb;
+  border-radius: 50%;
+  box-shadow: 10px 45px 50px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset -5px -5px 15px rgba(0, 0, 0, 0.75), inset 5px 5px 20px rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #202020;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.clock span {
+  position: absolute;
+  inset: 15px;
+  color: #000000;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+  font-size: 2em;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 9;
+}
+
+.circle i {
+  position: absolute;
+  width: 6px;
+  height: 50%;
+  background: var(--clr);
+  opacity: 0.75;
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+}
+
+.circle:nth-child(1) i {
+  width: 2px;
+}
+
+.circle:nth-child(2) i {
+  width: 6px;
+}
+
+.circle2 {
+  width: 240px;
+  height: 240px;
+  z-index: 8;
+}
+
+.circle3 {
+  width: 180px;
+  height: 180px;
+  z-index: 7;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: -8.5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
+
+#time {
+  margin-bottom: 40px;
+  display: flex;
+  padding: 10px 20px;
+  font-size: 2em;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  background: #bbbbbb;
+}
+
+#time div {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  width: 60px;
+  text-align: center;
+  font-weight: 500;
+  color: #000000;
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after {
+  content: ":";
+  position: absolute;
+  right: -3.5px;
+}
+
+#time div:nth-child(2)::after {
+  animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
